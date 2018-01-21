@@ -1,16 +1,22 @@
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from flask_wtf import Form
-from wtforms import StringField, SubmitField
+from wtforms import StringField, SubmitField, PasswordField
 from wtforms.validators import Required
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'tamadre'
 Bootstrap(app)
 
-@app.route('/index')
+class LoginForm(Form):
+    username = StringField('Cual es tu nombre ptmr',validators=[Required()])
+    password = PasswordField('password')
+    submit = SubmitField('submit')
+
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html')
+    form = LoginForm()
+    return render_template('index.html', form=form)
 
 @app.route('/user/<name>')
 def user(name):
