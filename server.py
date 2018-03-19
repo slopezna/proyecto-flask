@@ -9,8 +9,8 @@ app.config['SECRET_KEY'] = 'tamadre'
 Bootstrap(app)
 
 class LoginForm(Form):
-    username = StringField('Cual es tu nombre ptmr',validators=[Required()])
-    password = PasswordField('password')
+    username = StringField('Usuario',validators=[Required()])
+    password = PasswordField('Password')
     submit = SubmitField('submit')
 
 @app.route('/', methods=['GET', 'POST'])
@@ -22,6 +22,10 @@ def index():
 def user(name):
     return render_template('user.html', name=name)
 
+@app.route('/config')
+def config():
+    return render_template('configuracion.html')
+
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
@@ -31,4 +35,4 @@ def internal_server_error(e):
     return render_template('500.html'), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=80)
