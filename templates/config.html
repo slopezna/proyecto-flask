@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}Configuración{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <style>
+        .config-list-item {
+            width: 300px;
+        }
+        .lista {
+            background-color: #D3D3D3;
+        }
+        h3.hidden {
+            visibility: hidden;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<section>
+    <div class="mdl-grid">
+    <div class="mdl-layout-spacer"></div>
+    <div class="mdl-cell mdl-cell--4-col mdl-typography--text-center"><h3>Configuración General</h3></div>
+    <div class="mdl-layout-spacer"></div>
+    </div>
+</section>
+<section class="section--center mdl-grid">
+    <div class="mdl-layout-spacer"></div>
+    <div class="mdl-cell mdl-cell--4-col lista">
+        <ul class="config-list-item mdl-list">
+            <li class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">
+                Notificar por correo
+                </span>
+            </li>
+            <li class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">
+                Periodo de actualización de estado
+                </span>
+            </li>
+            <li class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">
+                Enviar estadisticas al correo
+                </span>
+            </li>
+        </ul>
+    </div>
+    <div class="mdl-cell mdl-cell--4-col lista">
+        <ul class="config-list-item mdl-list">
+            <li class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">
+                    <span class="mdl-list__item-primary-content">
+                        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
+                        <input type="checkbox" id="switch-1" class="mdl-switch__input" checked>
+                        <span class="mdl-switch__label"></span>
+                        </label>
+                    </span>
+                </span>
+            </li>
+            <li class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">
+                    <!-- Slider del periodo actualizacion -->
+                    <input class="mdl-slider mdl-js-slider" type="range"
+                    min="0" max="100" value="25" tabindex="0">
+                </span>
+            </li>
+            <li class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">
+                    <!-- Colored raised button -->
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                        Enviar
+                    </button>
+                </span>
+            </li>
+        </ul>
+    </div>
+    <div class="mdl-layout-spacer"></div>
+</section>
+{% endblock %}

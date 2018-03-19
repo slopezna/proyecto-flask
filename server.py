@@ -6,7 +6,6 @@ from wtforms.validators import Required
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'tamadre'
-Bootstrap(app)
 
 class LoginForm(Form):
     username = StringField('Usuario',validators=[Required()])
@@ -18,13 +17,13 @@ def index():
     form = LoginForm()
     return render_template('index.html', form=form)
 
-@app.route('/user/<name>')
-def user(name):
-    return render_template('user.html', name=name)
+@app.route('/maquina')
+def maquina():
+    return render_template('maquina.html')
 
 @app.route('/config')
 def config():
-    return render_template('configuracion.html')
+    return render_template('config.html')
 
 @app.errorhandler(404)
 def page_not_found(e):

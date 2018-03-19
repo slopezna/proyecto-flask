@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<section>
+    <div class="mdl-grid">
+    <div class="mdl-layout-spacer"></div>
+    <div class="mdl-cell mdl-cell--4-col mdl-typography--text-center"><h3>Configuración de la Máquina</h3></div>
+    <div class="mdl-layout-spacer"></div>
+    </div>
+</section>
+
+<section>
+    <div class="mdl-grid">
+    <div class="mdl-layout-spacer"></div>
+    <div class="mdl-cell mdl-cell--4-col">
+        <div class="mdl-grid">
+            <table class="mdl-data-table mdl-js-data-table">
+            <tbody>
+            <tr>
+            <td class="mdl-data-table__cell--non-numeric">Tiempo de operación</td>
+            <td>600 Hr</td>
+            </tr>
+            <tr>
+            <td class="mdl-data-table__cell--non-numeric">Ultima mantención</td>
+            <td>24/09/2017</td>
+            </tr>
+            <tr>
+            <td class="mdl-data-table__cell--non-numeric">Cantidad de sensores instalados</td>
+            <td>3</td>
+            </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="mdl-layout-spacer"></div>
+    </div>
+</section>
+{% endblock %}
