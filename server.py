@@ -7,15 +7,11 @@ from wtforms.validators import Required
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'tamadre'
 
-class LoginForm(Form):
-    username = StringField('Usuario',validators=[Required()])
-    password = PasswordField('Password')
-    submit = SubmitField('submit')
-
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def index():
-    form = LoginForm()
-    return render_template('index.html', form=form)
+    #cambiar entre ok, risk y danger para ver los cambios en el dashboard
+    status = 'risk'
+    return render_template('index.html', status=status)
 
 @app.route('/maquina')
 def maquina():

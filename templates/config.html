@@ -4,25 +4,25 @@
 
 {% block head %}
     {{ super() }}
-    <style>
+    <style type="text/css">
         .config-list-item {
             width: 300px;
         }
-        .lista {
+        /*.lista {
             background-color: #D3D3D3;
         }
-        h3.hidden {
-            visibility: hidden;
-        }
+        */
     </style>
 {% endblock %}
 
 {% block content %}
 <section>
+    <div class="mdl-grid"></div>
+    <div class="mdl-grid"></div>
     <div class="mdl-grid">
-    <div class="mdl-layout-spacer"></div>
-    <div class="mdl-cell mdl-cell--4-col mdl-typography--text-center"><h3>Configuración General</h3></div>
-    <div class="mdl-layout-spacer"></div>
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-cell mdl-cell--4-col mdl-typography--text-center"><h3>Configuración General</h3></div>
+        <div class="mdl-layout-spacer"></div>
     </div>
 </section>
 <section class="section--center mdl-grid">

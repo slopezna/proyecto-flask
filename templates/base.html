@@ -1,49 +1,49 @@
 <html lang="es">
-<head>
-    {% block head %}
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Sistema de detección de fallas en rodamientos.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-blue.min.css" />
-    <title>W^2 - {% block title %}{% endblock %}</title>
-    {% endblock %}
-</head>
+    <head>
+        {% block head %}
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="description" content="Sistema de detección de fallas en rodamientos.">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+            <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+            <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+            <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+            <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-blue.min.css" />
+            <title>W^2 - {% block title %}{% endblock %}</title>
+        {% endblock %}
+    </head>
 
-<body class="mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
-{% block body %}
-    <!-- Always shows a header, even in smaller screens. -->
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <header class="mdl-layout__header">
-            <div class="mdl-layout__header-row">
-                <!-- Title -->
-                <span class="mdl-layout-title">Sistema de detección</span>
-                <!-- Add spacer, to align navigation to the right -->
-                <div class="mdl-layout-spacer"></div>
-                <!-- Navigation. We hide it in small screens. -->
-                <nav class="mdl-navigation mdl-layout--large-screen-only">
-                <a class="mdl-navigation__link" href="">Contacto</a>
-                <a class="mdl-navigation__link" href="">Log out</a>
-                </nav>
+    <body class="mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+        {% block body %}
+            <!-- Always shows a header, even in smaller screens. -->
+            <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+                <header class="mdl-layout__header">
+                    <div class="mdl-layout__header-row">
+                        <!-- Title -->
+                        <span class="mdl-layout-title">Sistema de detección</span>
+                        <!-- Add spacer, to align navigation to the right -->
+                        <div class="mdl-layout-spacer"></div>
+                        <!-- Navigation. We hide it in small screens. -->
+                        <nav class="mdl-navigation mdl-layout--large-screen-only">
+                        <a class="mdl-navigation__link" href="">Contacto</a>
+                        <a class="mdl-navigation__link" href="">Log out</a>
+                        </nav>
+                    </div>
+                </header>
+                <div class="mdl-layout__drawer">
+                    <span class="mdl-layout-title">W^2</span>
+                    <nav class="mdl-navigation">
+                        <a class="mdl-navigation__link" href="/">Dashboard</a>
+                        <a class="mdl-navigation__link" href="maquina">Configuración de la máquina</a>
+                        <a class="mdl-navigation__link" href=""><span class="mdl-badge" data-badge="4">Registros del mes</span></a>
+                        <a class="mdl-navigation__link" href="config">Configuración general</a>
+                    </nav>
+                </div>
+                <main class="mdl-layout__content">
+                    <div class="page-content">{% block content %}{% endblock %}</div>
+                </main>
             </div>
-        </header>
-        <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title">W^2</span>
-            <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="/">Dashboard</a>
-                <a class="mdl-navigation__link" href="maquina">Configuración de la máquina</a>
-                <a class="mdl-navigation__link" href=""><span class="mdl-badge" data-badge="4">Registros del mes</span></a>
-                <a class="mdl-navigation__link" href="config">Configuración general</a>
-            </nav>
-        </div>
-        <main class="mdl-layout__content">
-            <div class="page-content">{% block content %}{% endblock %}</div>
-        </main>
-    </div>
-{% endblock %}
-</body>
+        {% endblock %}
+    </body>
 </html>
