@@ -35,35 +35,35 @@
 
     <section>
         <div class="mdl-grid">
-        <div class="mdl-layout-spacer"></div>
-        <div class="mdl-cell mdl-cell--5-col">
-            <div class="demo-card-wide mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title">
-                    <h2 class="mdl-card__title-text">
-                        {% if tipo == 1 %}
-                            El rodamiento está sano
-                        {% else %}
-                            {% if tipo == 2 %}
-                                El rodamiento esta en riesgo
+            <div class="mdl-layout-spacer"></div>
+            <div class="mdl-cell mdl-cell--5-col">
+                <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">
+                            {% if tipo == 1 %}
+                                El rodamiento está sano
                             {% else %}
-                                {% if tipo == 3 %}
-                                    El rodamiento corre grave peligro
+                                {% if tipo == 2 %}
+                                    El rodamiento esta en riesgo
+                                {% else %}
+                                    {% if tipo == 3 %}
+                                        El rodamiento corre grave peligro
+                                    {% endif %}
                                 {% endif %}
                             {% endif %}
-                        {% endif %}
-                    </h2>
-                </div>
-                <div class="mdl-card__supporting-text">
-                    {{ status }}
-                </div>
-                <div class="mdl-card__menu">
-                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-                    <i class="material-icons">share</i>
-                    </button>
+                        </h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        {{ status }}
+                    </div>
+                    <div class="mdl-card__menu">
+                        <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                        <i class="material-icons">share</i>
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="mdl-layout-spacer"></div>
+            <div class="mdl-layout-spacer"></div>
         </div>
 
     </section>
