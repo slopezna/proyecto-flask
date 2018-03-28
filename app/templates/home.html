@@ -1,60 +1,84 @@
 <!doctype html>
 
-<html lang="en">
+<html lang="es">
     <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Introducing Lollipop, a sweet new take on Android.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>MDL Test</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="Introducing Lollipop, a sweet new take on Android.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <title>w^2 - Home</title>
 
-    <!-- Page styles -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.min.css">
-    <style>
-        body, html {
-            height: 100%;
-        }
+        <!-- Page styles -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.min.css">
+        <style type="text/css">
+            body, html {
+                height: 100%;
+            }
+            .bg {
+                background-image: url("/static/fondo3.jpg");
+                height: 100%;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .demo-card-wide.mdl-card {
+                width: 650px;
+            }
+            .demo-card-wide > .mdl-card__title {
+                color: #fff;
+                height: 120px;
+                background-color: #4286f4;
 
-        .bg {
-            /* The image used */
-            background-image: url("/static/fondo3.jpg");
+            }
+            .demo-card-wide > .mdl-card__menu {
+                color: #fff;
+            }
 
-            /* Full height */
-            height: 100%;
-
-            /* Center and scale the image nicely */
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-    </style>
+            .demo-layout-transparent {
+                background: url("/static/fondo2.jpg") center / cover;
+            }
+            .demo-layout-transparent .mdl-layout__header, .demo-layout-transparent .mdl-layout__drawer-button {
+            /* This background is dark, so we set text to white. Use 87% black instead if
+            your background is light. */
+            color: white;
+            }
+        </style>
     </head>
 
-    <body class="bg">
-        <div class="site mdl-layout mdl-js-layout">
-            <header class="mdl-layout__header mdl-layout__header--waterfall">
+    <body>
+        <div class="demo-layout-transparent mdl-layout mdl-js-layout">
+            <header class="mdl-layout__header mdl-layout__header--transparent">
                 <div class="mdl-layout__header-row">
-                <!-- Header Content Here -->
+                <span class="mdl-layout-title">Intellimek</span>
+                <div class="mdl-layout-spacer"></div>
+                <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="">Contact</a>
+                <a class="mdl-navigation__link" href="auth/login">Sign in</a>
+                </nav>
                 </div>
             </header>
-            <div class="mdl-layout__drawer">
-                <!-- Drawer Content -->
-            </div>
+            <div class="mdl-layout-spacer"></div>
             <main class="mdl-layout__content">
-                <ul class="demo-list-icon mdl-list">
-                <li class="mdl-list__item">
-                <span class="mdl-list__item-primary-content">
-                <i class="material-icons mdl-list__item-icon">person</i>
-                Bryan Cranston
-                </span>
-                </li>
-                </ul>
+                <div class="mdl-grid">
+                <div class="mdl-layout-spacer"></div>
+                <div class="mdl-cell mdl-cell--6-col">
+                <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text">
+                    Bienvenido al servicio de diagnóstico de salud para rodamientos
+                </h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    Iniciar sesión para monitorear los equipos
+                </div>
+                </div>
+                </div>
+                <div class="mdl-layout-spacer"></div>
+                </div>
             </main>
-            <div class="mdl-layout__obfuscator"></div>
         </div>
-
         <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
     </body>
 </html>
