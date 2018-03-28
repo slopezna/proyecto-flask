@@ -15,4 +15,9 @@
             {% endif %}
         {% endif %}
     {% endif %}
+    {% if current_user.is_authenticated %}
+        <div>
+            <p>{{ current_user.get_id() }}</p>
+        </div>
+    {% endif %}
 {% endblock %}

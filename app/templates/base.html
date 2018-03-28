@@ -8,7 +8,6 @@
             <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
             <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
             <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-            <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
             <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-blue.min.css" />
             <title>W^2 - {% block title %}{% endblock %}</title>
         {% endblock %}
@@ -27,7 +26,9 @@
                         <!-- Navigation. We hide it in small screens. -->
                         <nav class="mdl-navigation mdl-layout--large-screen-only">
                         <a class="mdl-navigation__link" href="">Contacto</a>
-                        <a class="mdl-navigation__link" href="">Log out</a>
+                        {% if current_user.is_authenticated %}
+                            <a class="mdl-navigation__link" href="{{ url_for('auth.logout') }}">Log out</a>
+                        {% endif %}
                         </nav>
                     </div>
                 </header>
@@ -45,5 +46,6 @@
                 </main>
             </div>
         {% endblock %}
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     </body>
 </html>
