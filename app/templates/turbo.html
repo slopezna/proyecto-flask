@@ -1,0 +1,273 @@
+{% macro display_table() %}
+<style type="text/css">
+    .risk{
+        background-color: #ffff33;
+    }
+    .ok{
+        background-color: #47d147;
+        color: #ffffff;
+    }
+    .danger{
+        background-color: #ff1a1a;
+        color: #ffffff;
+    }
+
+    button {
+        margin-right: 8px;
+    }
+
+    .dialog-container, .loading-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        overflow: scroll;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 9999;
+        opacity: 0;
+        -webkit-transition: opacity 400ms ease-in;
+        -moz-transition: opacity 400ms ease-in;
+        transition: opacity 400ms ease-in;
+    }
+
+    .dialog-container > div {
+        position: relative;
+        width: 100%;
+        max-width: 1000px;
+        min-height: 25px;
+        margin: 10% auto;
+        z-index: 99999;
+        padding: 16px 16px 0;
+    }
+
+    .dialog-button-bar {
+        text-align: right;
+        margin-top: 8px;
+    }
+
+</style>
+
+<section>
+    <div class="mdl-grid">
+    <div class="mdl-layout-spacer"></div>
+    <div class="mdl-cell mdl-cell--4-col mdl-typography--text-center"><h3>Dashboard</h3></div>
+    <div class="mdl-layout-spacer"></div>
+    </div>
+</section>
+
+<section>
+    <div class="mdl-grid">
+    <div class="mdl-layout-spacer"></div>
+    <div class="mdl-cell mdl-cell--8-col">
+        <div class="mdl-grid">
+            <table class="mdl-data-table mdl-js-data-table">
+                <tbody>
+                    <tr><!-- fila -->
+                        <td class="mdl-data-table__cell--non-numeric"><b>Nombre del equipo</b></td>
+                        <td class="mdl-data-table__cell--non-numeric"><b>Estado</b></td>
+                        <td class="mdl-data-table__cell--non-numeric"><b>Ubicación del equipo</b></td>
+                        <td class="mdl-data-table__cell--non-numeric"><b>Ultima medición</b></td>
+                        <td class="mdl-data-table__cell--non-numeric"><b>Ubicación sensor</b></td>
+                        <td class="mdl-data-table__cell--non-numeric"><b>Informe</b></td>
+                        <td class="mdl-data-table__cell--non-numeric"><b>Diagnóstico</b></td>
+                        <td class="mdl-data-table__cell--non-numeric"><b>Comportamiento</b></td>
+                    </tr>
+                    <tr><!-- fila -->
+                        <td class="mdl-data-table__cell--non-numeric">EESB-1103</td>
+                        <td class="risk mdl-data-table__cell--non-numeric">RISK</td>
+                        <td class="mdl-data-table__cell--non-numeric">Sala de calderas</td>
+                        <td>01/04/2018 16:42</td>
+                        <td class="mdl-data-table__cell--non-numeric">Fan-end</td>
+                        <td class="mdl-data-table__cell--non-numeric"><div id="tt1" class="icon material-icons">file_download</div>
+                            <div class="mdl-tooltip" data-mdl-for="tt1">
+                            Descargar informe EESB-1103.pdf
+                            </div>
+                        </td>
+                        <td class="mdl-data-table__cell--non-numeric"><div class="icon material-icons">play_circle_filled</div></td>
+                        <td class="mdl-data-table__cell--non-numeric"><div class="icon material-icons">assessment</div></td>
+
+                        <dialog class="mdl-dialog">
+                            <h4 class="mdl-dialog__title">Datos historicos</h4>
+                            <div class="mdl-dialog__content">
+                                asdadaaa
+                            </div>
+                            <div class="mdl-dialog__actions">
+                            <button type="button" class="mdl-button">Agree</button>
+                            <button type="button" class="mdl-button close">Disagree</button>
+                            </div>
+                        </dialog>
+                    </tr>
+                    <tr><!-- fila -->
+                        <td class="mdl-data-table__cell--non-numeric">EESB-1442</td>
+                        <td class="ok mdl-data-table__cell--non-numeric">NORMAL</td>
+                        <td class="mdl-data-table__cell--non-numeric">Sala de calderas</td>
+                        <td>01/04/2018 16:20</td>
+                        <td class="mdl-data-table__cell--non-numeric">Fan-end</td>
+                        <td class="mdl-data-table__cell--non-numeric"><div id="tt2" class="icon material-icons">file_download</div>
+                            <div class="mdl-tooltip" data-mdl-for="tt2">
+                            Descargar informe EESB-1442.pdf
+                            </div>
+                        </td>
+                        <td class="mdl-data-table__cell--non-numeric"><div class="icon material-icons">play_circle_filled</div></td>
+                        <td class="mdl-data-table__cell--non-numeric"><div class="icon material-icons">assessment</div></td>
+                    </tr>
+                    <tr><!-- fila -->
+                        <td class="mdl-data-table__cell--non-numeric">EESB-1005</td>
+                        <td class="danger mdl-data-table__cell--non-numeric">DANGER</td>
+                        <td class="mdl-data-table__cell--non-numeric">Enfriador</td>
+                        <td>01/04/2018 16:30</td>
+                        <td class="mdl-data-table__cell--non-numeric">Drive-end</td>
+                        <td class="mdl-data-table__cell--non-numeric"><div id="tt3" class="icon material-icons">file_download</div>
+                            <div class="mdl-tooltip" data-mdl-for="tt3">
+                            Descargar informe EESB-1005.pdf
+                            </div>
+                        </td>
+                        <td class="mdl-data-table__cell--non-numeric"><div class="icon material-icons">play_circle_filled</div></td>
+                        <td class="mdl-data-table__cell--non-numeric"><div class="icon material-icons" id="show-info">assessment</div></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <div class="mdl-layout-spacer"></div>
+    </div>
+</section>
+
+<script>
+var lorem = '<br>';
+$('#show-info').click(function () {
+    showDialog({
+        title: 'Estados de la máquina hasta la fecha',
+        text: lorem
+    })
+});
+
+function showDialog(options) {
+    options = $.extend({
+        id: 'orrsDiag',
+        title: null,
+        text: null,
+        negative: false,
+        positive: false,
+        cancelable: true,
+        contentStyle: null,
+        onLoaded: false
+    }, options);
+
+    // remove existing dialogs
+    $('.dialog-container').remove();
+    $(document).unbind("keyup.dialog");
+
+    $('<div id="' + options.id + '" class="dialog-container"><div class="mdl-card mdl-shadow--16dp"></div></div>').appendTo("body");
+    var dialog = $('#orrsDiag');
+    var content = dialog.find('.mdl-card');
+    if (options.contentStyle != null) content.css(options.contentStyle);
+    if (options.title != null) {
+        $('<h5>' + options.title + '</h5>').appendTo(content);
+    }
+    if (options.text != null) {
+        $('<canvas id="speedChart" width="180" height="60"></canvas>').appendTo(content);
+        //
+        var densityCanvas = document.getElementById("speedChart");
+        Chart.defaults.global.defaultFontFamily = "Roboto";
+        Chart.defaults.global.defaultFontSize = 12;
+
+        var densityData = {
+            data: [15,3,1],
+            backgroundColor: [
+                '#47d147',
+                '#ffff33',
+                '#ff1a1a'
+            ]
+        };
+
+        var chartOptions = {
+            legend: {
+            display: false,
+            position: 'top',
+            labels: {
+            boxWidth: 80,
+            fontColor: 'black'
+            }
+            }
+        };
+
+        var barChart = new Chart(densityCanvas, {
+            type: 'bar',
+            data: {
+                labels: ["OK", "Risk", "Danger"],
+                datasets: [densityData]
+            },
+            options: chartOptions
+        });
+        //
+    }
+    if (options.negative || options.positive) {
+        var buttonBar = $('<div class="mdl-card__actions dialog-button-bar"></div>');
+        if (options.negative) {
+            options.negative = $.extend({
+                id: 'negative',
+                title: 'Cancel',
+                onClick: function () {
+                    return false;
+                }
+            }, options.negative);
+            var negButton = $('<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="' + options.negative.id + '">' + options.negative.title + '</button>');
+            negButton.click(function (e) {
+                e.preventDefault();
+                if (!options.negative.onClick(e))
+                    hideDialog(dialog)
+            });
+            negButton.appendTo(buttonBar);
+        }
+        if (options.positive) {
+            options.positive = $.extend({
+                id: 'positive',
+                title: 'OK',
+                onClick: function () {
+                    return false;
+                }
+            }, options.positive);
+            var posButton = $('<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="' + options.positive.id + '">' + options.positive.title + '</button>');
+            posButton.click(function (e) {
+                e.preventDefault();
+                if (!options.positive.onClick(e))
+                    hideDialog(dialog)
+            });
+            posButton.appendTo(buttonBar);
+        }
+        buttonBar.appendTo(content);
+    }
+    componentHandler.upgradeDom();
+    if (options.cancelable) {
+        dialog.click(function () {
+            hideDialog(dialog);
+        });
+        $(document).bind("keyup.dialog", function (e) {
+            if (e.which == 27)
+                hideDialog(dialog);
+        });
+        content.click(function (e) {
+            e.stopPropagation();
+        });
+    }
+    setTimeout(function () {
+        dialog.css({opacity: 1});
+        if (options.onLoaded)
+            options.onLoaded();
+    }, 1);
+}
+
+function hideDialog(dialog) {
+    $(document).unbind("keyup.dialog");
+    dialog.css({opacity: 0});
+    setTimeout(function () {
+        dialog.remove();
+    }, 400);
+}
+
+
+</script>
+{% endmacro %}

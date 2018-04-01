@@ -1,23 +1,48 @@
 {% extends "base.html" %}
 {% import 'estado.html' as estado %}
-
+{% import 'turbo.html' as turbo %}
 {% block title %}Dashboard{% endblock %}
-
-{% block content %}
-    {% if status == "ok" %}
-        {{ estado.estado_rodamiento(status,1) }}
-    {% else %}
-        {% if status == "risk" %}
-            {{ estado.estado_rodamiento(status,2) }}
-        {% else %}
-            {% if status == "danger" %}
-                {{ estado.estado_rodamiento(status,3) }}
-            {% endif %}
-        {% endif %}
-    {% endif %}
-    {% if current_user.is_authenticated %}
-        <div>
-            <p>{{ current_user.get_id() }}</p>
-        </div>
-    {% endif %}
+{% block body %}
+<!-- Simple header with fixed tabs. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header
+            mdl-layout--fixed-tabs">
+  <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">Intellimek</span>
+          <div class="mdl-layout-spacer"></div>
+          <nav class="mdl-navigation mdl-layout--large-screen-only">
+          <a class="mdl-navigation__link" href="">Contact</a>
+          {% if current_user.is_authenticated %}
+              <a class="mdl-navigation__link" href="{{ url_for('auth.logout') }}">Sign out</a>
+          {% endif %}
+          </nav>
+      </div>
+    <!-- Tabs -->
+    <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+      <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Turbocompresores</a>
+      <a href="#fixed-tab-2" class="mdl-layout__tab">Bombas</a>
+      <a href="#fixed-tab-3" class="mdl-layout__tab">Turbinas</a>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">W^2</span>
+      <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="dashboard">Dashboard</a>
+          <a class="mdl-navigation__link" href="maquina">Configuración de las máquinas</a>
+          <a class="mdl-navigation__link" href=""><span class="mdl-badge" data-badge="4">Registros del mes</span></a>
+          <a class="mdl-navigation__link" href="config">Configuración general</a>
+      </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
+      <div class="page-content">{{ turbo.display_table() }}</div>
+    </section>
+    <section class="mdl-layout__tab-panel" id="fixed-tab-2">
+      <div class="page-content"></div>
+    </section>
+    <section class="mdl-layout__tab-panel" id="fixed-tab-3">
+      <div class="page-content"><!-- Your content goes here --></div>
+    </section>
+  </main>
+</div>
 {% endblock %}
